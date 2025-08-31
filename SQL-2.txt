@@ -1,0 +1,67 @@
+SQL> CREATE TABLE LOCATIONS(LOCATION_ID VARCHAR(5) NOT NULL,LOCATION VARCHAR(50) NOT NULL,OFFICE_SIZE NUMBER,EMPID VARCHAR(5),PRIMARY KEY(LOCATION_ID),FOREIGN KEY(EMPID) REFERENCES DATAFLAIRS(EMPID));
+
+Table created.
+
+SQL> INSERT INTO Dataflairs VALUES (1,'ABI','CHENNAI',1) ;
+
+1 row created.
+
+SQL> INSERT INTO Dataflairs VALUES (2,'AADHI','COIMBATORE',2) ;
+
+1 row created.
+
+SQL> INSERT INTO Dataflairs VALUES (3,'SAKTHI','ERODE',2) ;
+
+1 row created.
+
+SQL> INSERT INTO Dataflairs VALUES (4,'SIVA','TRICHY',1) ;
+
+1 row created.
+
+SQL> INSERT INTO Dataflairs VALUES (5,'RAJ','SALEM',3) ;
+
+1 row created.
+
+SQL> INSERT INTO Locations VALUES (123,'CHENNAI',5,1) ;
+
+1 row created.
+
+SQL> INSERT INTO Locations VALUES (124,'COIMBATORE',10,2) ;
+
+1 row created.
+
+SQL> INSERT INTO Locations VALUES (126,'ERODE',20,3) ;
+
+1 row created.
+
+SQL> INSERT INTO Locations VALUES (125,'TRICHY',15,4) ;
+
+1 row created.
+
+SQL> INSERT INTO Locations VALUES (127,'SALEM',25,5) ;
+
+1 row created.
+
+SQL> SELECT * FROM Dataflairs ;
+
+EMPID NAME                                               LOCATION   EXPERIENCE
+----- -------------------------------------------------- ---------- ----------
+1     ABI                                                CHENNAI             1
+2     AADHI                                              COIMBATORE          2
+3     SAKTHI                                             ERODE               2
+4     SIVA                                               TRICHY              1
+5     RAJ                                                SALEM               3
+
+SQL> SELECT * FROM Locations ;
+
+LOCAT LOCATION                                           OFFICE_SIZE EMPID
+----- -------------------------------------------------- ----------- -----
+123   CHENNAI                                                      5 1
+124   COIMBATORE                                                  10 2
+126   ERODE                                                       20 3
+125   TRICHY                                                      15 4
+127   SALEM                                                       25 5
+
+SQL> SELECT Dataflairs.empid, name, Dataflairs.locations from Dataflairs, Location WHERE Dataflairs.empid = Locations.empid ;
+SELECT Dataflairs.empid, name, Dataflairs.locations from Dataflairs, Location WHERE Dataflairs.empid = Locations.empid
+                                                                                                       *
