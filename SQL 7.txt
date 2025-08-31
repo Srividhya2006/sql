@@ -1,0 +1,361 @@
+
+SQL> CREATE TABLE STUDENT(ADMISSION_NO VARCHAR(10) NOT NULL,FIRST_NAME VARCHAR(20) NOT NULL,LAST_NAME VARCHAR(20) NOT NULL,AGE NUMBER,CITY VARCHAR(30));
+
+Table created.
+
+SQL> CREATE TABLE FEE(ADMISSION_NO VARCHAR(9) NOT NULL,COURSE VARCHAR(30) NOT NULL,AMOUNT_PAID NUMBER);
+
+Table created.
+
+SQL> INSERT INTO Student VALUES
+  2  ( '&admission_no', '&first_name', '&last_name', &age, '&city' ) ;
+Enter value for admission_no: ( '3354','LUISA','EVANS',13,'TEXAS' ) ,
+Enter value for first_name: ( '2135','PAUL','WARD',15,'ALASKA') ,
+Enter value for last_name: ( '4321','PETER','BENNETT',14,'CALIFORNIA' ) ,
+Enter value for age: ( '4213','CARLOS','PATTERSON',17,'NEW YORK' ) ,
+Enter value for city: ( '5112','ROSE','HUGES',16,'FLORIDA' ) ,
+old   2: ( '&admission_no', '&first_name', '&last_name', &age, '&city' )
+new   2: ( '( '3354','LUISA','EVANS',13,'TEXAS' ) , ', '( '2135','PAUL','WARD',15,'ALASKA') , ', '( '4321','PETER','BENNETT',14,'CALIFORNIA' ) , ', ( '4213','CARLOS','PATTERSON',17,'NEW YORK' ) , , '( '5112','ROSE','HUGES',16,'FLORIDA' ) , ' )
+( '( '3354','LUISA','EVANS',13,'TEXAS' ) , ', '( '2135','PAUL','WARD',15,'ALASKA') , ', '( '4321','PETER','BENNETT',14,'CALIFORNIA' ) , ', ( '4213','CARLOS','PATTERSON',17,'NEW YORK' ) , , '( '5112','ROSE','HUGES',16,'FLORIDA' ) , ' )
+      *
+ERROR at line 2:
+ORA-00917: missing comma
+
+
+SQL> ( '6113','MARIELIA','SIMMONS',15,'ARIZONA' ) ,
+  2  ( '7555','ANTONIA','BUTLER',14,'NEW YORK' ) ,
+  3  ( '8345','DIEGO','COX',13,'CALIFORNIA' ) ;
+( '6113','MARIELIA','SIMMONS',15,'ARIZONA' ) ,
+  *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword
+
+
+SQL> INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&CITY');
+Enter value for admission_no: 3354
+Enter value for first_name: LUISA
+Enter value for last_name: EVANS
+Enter value for city: 13
+old   1: INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&CITY')
+new   1: INSERT INTO STUDENT VALUES('3354','LUISA','EVANS','13')
+INSERT INTO STUDENT VALUES('3354','LUISA','EVANS','13')
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY');
+Enter value for admission_no: 3354
+Enter value for first_name: LUISA
+Enter value for last_name: EVANS
+Enter value for age: 13
+Enter value for city: TEXAS
+old   1: INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY')
+new   1: INSERT INTO STUDENT VALUES('3354','LUISA','EVANS','13','TEXAS')
+
+1 row created.
+
+SQL> INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY');
+Enter value for admission_no: 2135
+Enter value for first_name: PAUL
+Enter value for last_name: WARD
+Enter value for age: 15
+Enter value for city: ALASKA
+old   1: INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY')
+new   1: INSERT INTO STUDENT VALUES('2135','PAUL','WARD','15','ALASKA')
+
+1 row created.
+
+SQL> INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY');
+Enter value for admission_no: 4321
+Enter value for first_name: PETER
+Enter value for last_name: BENNETT
+Enter value for age: 14
+Enter value for city: CALIFORNIA
+old   1: INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY')
+new   1: INSERT INTO STUDENT VALUES('4321','PETER','BENNETT','14','CALIFORNIA')
+
+1 row created.
+
+SQL> INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY');
+Enter value for admission_no: 4213
+Enter value for first_name: CARLOS
+Enter value for last_name: PATTERSON
+Enter value for age: 17
+Enter value for city: NEW YORK
+old   1: INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY')
+new   1: INSERT INTO STUDENT VALUES('4213','CARLOS','PATTERSON','17','NEW YORK')
+
+1 row created.
+
+SQL> INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY');
+Enter value for admission_no: 5112
+Enter value for first_name: ROSE
+Enter value for last_name: HUGES
+Enter value for age: 16
+Enter value for city: FLORIDA
+old   1: INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY')
+new   1: INSERT INTO STUDENT VALUES('5112','ROSE','HUGES','16','FLORIDA')
+
+1 row created.
+
+SQL> INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY');
+Enter value for admission_no: 6113
+Enter value for first_name: MARIELIA
+Enter value for last_name: SIMMONS
+Enter value for age: 15
+Enter value for city: RIZONA
+old   1: INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY')
+new   1: INSERT INTO STUDENT VALUES('6113','MARIELIA','SIMMONS','15','RIZONA')
+
+1 row created.
+
+SQL> INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY');
+Enter value for admission_no: 7555
+Enter value for first_name: ANTONIA
+Enter value for last_name: BUTLER
+Enter value for age: 14
+Enter value for city: NEW YORK
+old   1: INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY')
+new   1: INSERT INTO STUDENT VALUES('7555','ANTONIA','BUTLER','14','NEW YORK')
+
+1 row created.
+
+SQL> INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY');
+Enter value for admission_no: 8345
+Enter value for first_name: DIEGO
+Enter value for last_name: COX
+Enter value for age: 13
+Enter value for city: CALIFORNIA
+old   1: INSERT INTO STUDENT VALUES('&ADMISSION_NO','&FIRST_NAME','&LAST_NAME','&AGE','&CITY')
+new   1: INSERT INTO STUDENT VALUES('8345','DIEGO','COX','13','CALIFORNIA')
+
+1 row created.
+
+SQL> INSERT INTO FEE VALUES('&ADMISSION_NO','&COURSE','&AMOUNT_PAID');
+Enter value for admission_no: 3354
+Enter value for course: JAVA
+Enter value for amount_paid: 20000
+old   1: INSERT INTO FEE VALUES('&ADMISSION_NO','&COURSE','&AMOUNT_PAID')
+new   1: INSERT INTO FEE VALUES('3354','JAVA','20000')
+
+1 row created.
+
+SQL> INSERT INTO FEE VALUES('&ADMISSION_NO','&COURSE','&AMOUNT_PAID');
+Enter value for admission_no: 7555
+Enter value for course: ANDROID
+Enter value for amount_paid: 22000
+old   1: INSERT INTO FEE VALUES('&ADMISSION_NO','&COURSE','&AMOUNT_PAID')
+new   1: INSERT INTO FEE VALUES('7555','ANDROID','22000')
+
+1 row created.
+
+SQL> INSERT INTO FEE VALUES('&ADMISSION_NO','&COURSE','&AMOUNT_PAID');
+Enter value for admission_no: 4321
+Enter value for course: PYTHON
+Enter value for amount_paid: 18000
+old   1: INSERT INTO FEE VALUES('&ADMISSION_NO','&COURSE','&AMOUNT_PAID')
+new   1: INSERT INTO FEE VALUES('4321','PYTHON','18000')
+
+1 row created.
+
+SQL> INSERT INTO FEE VALUES('&ADMISSION_NO','&COURSE','&AMOUNT_PAID');
+Enter value for admission_no: 8345
+Enter value for course: SQL
+Enter value for amount_paid: 15000
+old   1: INSERT INTO FEE VALUES('&ADMISSION_NO','&COURSE','&AMOUNT_PAID')
+new   1: INSERT INTO FEE VALUES('8345','SQL','15000')
+
+1 row created.
+
+SQL> 5112
+SP2-0226: Invalid line number
+SQL> MACHINE LEARNING
+SP2-0734: unknown command beginning "MACHINE LE..." - rest of line ignored.
+SQL> MACHINE
+SP2-0042: unknown command "MACHINE" - rest of line ignored.
+SQL> INSERT INTO FEE VALUES('&ADMISSION_NO','&COURSE','&AMOUNT_PAID');
+Enter value for admission_no: 5112
+Enter value for course: MACHINE LEARNING
+Enter value for amount_paid: 30000
+old   1: INSERT INTO FEE VALUES('&ADMISSION_NO','&COURSE','&AMOUNT_PAID')
+new   1: INSERT INTO FEE VALUES('5112','MACHINE LEARNING','30000')
+
+1 row created.
+
+SQL> SELECT Student.admission_no, Student.first_name, Student.last_name,
+  2  Fee.course, Fee.amount_paid FROM Student INNER JOIN Fee ON
+  3  Student.admission_no = Fee.admission_no ;
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+3354       LUISA                EVANS
+JAVA                                 20000
+
+4321       PETER                BENNETT
+PYTHON                               18000
+
+5112       ROSE                 HUGES
+MACHINE LEARNING                     30000
+
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+7555       ANTONIA              BUTLER
+ANDROID                              22000
+
+8345       DIEGO                COX
+SQL                                  15000
+
+
+SQL> SELECT Student.admission_no, Student.first_name, Student.last_name,
+  2  Fee.course, Fee.amount_paid FROM Student CROSS JOIN Fee WHERE
+  3  Student.admission_no = Fee.admission_no ;
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+3354       LUISA                EVANS
+JAVA                                 20000
+
+4321       PETER                BENNETT
+PYTHON                               18000
+
+5112       ROSE                 HUGES
+MACHINE LEARNING                     30000
+
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+7555       ANTONIA              BUTLER
+ANDROID                              22000
+
+8345       DIEGO                COX
+SQL                                  15000
+
+
+SQL> SELECT Student.admission_no, Student.first_name, Student.last_name,
+  2  Fee.course, Fee.amount_paid FROM Student LEFT OUTER JOIN Fee ON
+  3  Student.admission_no = Fee.admission_no ;
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+3354       LUISA                EVANS
+JAVA                                 20000
+
+7555       ANTONIA              BUTLER
+ANDROID                              22000
+
+4321       PETER                BENNETT
+PYTHON                               18000
+
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+8345       DIEGO                COX
+SQL                                  15000
+
+5112       ROSE                 HUGES
+MACHINE LEARNING                     30000
+
+2135       PAUL                 WARD
+
+
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+4213       CARLOS               PATTERSON
+
+
+6113       MARIELIA             SIMMONS
+
+
+
+8 rows selected.
+
+SQL> SELECT Student.admission_no, Student.first_name, Student.last_name,
+  2  Fee.course, Fee.amount_paid FROM Student RIGHT OUTER JOIN Fee ON
+  3  Student.admission_no = Fee.admission_no ;
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+3354       LUISA                EVANS
+JAVA                                 20000
+
+4321       PETER                BENNETT
+PYTHON                               18000
+
+5112       ROSE                 HUGES
+MACHINE LEARNING                     30000
+
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+7555       ANTONIA              BUTLER
+ANDROID                              22000
+
+8345       DIEGO                COX
+SQL                                  15000
+
+
+SQL> SELECT Student.admission_no, Student.first_name, Student.last_name,
+  2  Fee.course, Fee.amount_paid FROM Student FULL  OUTER JOIN Fee ON
+  3  Student.admission_no = Fee.admission_no ;
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+3354       LUISA                EVANS
+JAVA                                 20000
+
+2135       PAUL                 WARD
+
+
+4321       PETER                BENNETT
+PYTHON                               18000
+
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+4213       CARLOS               PATTERSON
+
+
+5112       ROSE                 HUGES
+MACHINE LEARNING                     30000
+
+6113       MARIELIA             SIMMONS
+
+
+
+ADMISSION_ FIRST_NAME           LAST_NAME
+---------- -------------------- --------------------
+COURSE                         AMOUNT_PAID
+------------------------------ -----------
+7555       ANTONIA              BUTLER
+ANDROID                              22000
+
+8345       DIEGO                COX
+SQL                                  15000
+
+
+8 rows selected.
