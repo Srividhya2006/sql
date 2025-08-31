@@ -1,0 +1,66 @@
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun Aug 31 23:51:01 2025
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: SYSTEM
+Enter password:
+Last Successful login time: Sun Aug 31 2025 23:33:43 +05:30
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> CREATE TABLE CUSTOMERS(ID VARCHAR(10),NAME VARCHAR(50),ADDRESS VARCHAR(60),SALARY NUMBER);
+CREATE TABLE CUSTOMERS(ID VARCHAR(10),NAME VARCHAR(50),ADDRESS VARCHAR(60),SALARY NUMBER)
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> CREATE TABLE CUSTOMERSS(ID VARCHAR(10),NAME VARCHAR(50),ADDRESS VARCHAR(60),SALARY NUMBER);
+CREATE TABLE CUSTOMERSS(ID VARCHAR(10),NAME VARCHAR(50),ADDRESS VARCHAR(60),SALARY NUMBER)
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> CREATE TABLE CUSTOMERSSS(ID VARCHAR(10),NAME VARCHAR(50),ADDRESS VARCHAR(60),SALARY NUMBER);
+CREATE TABLE CUSTOMERSSS(ID VARCHAR(10),NAME VARCHAR(50),ADDRESS VARCHAR(60),SALARY NUMBER)
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> CREATE TABLE CUSTOM(ID VARCHAR(10),NAME VARCHAR(50),ADDRESS VARCHAR(60),SALARY NUMBER);
+
+Table created.
+
+SQL> INSERT INTO Custom VALUES (5,'Hardik','Bhopal',9000) ;
+
+1 row created.
+
+SQL> INSERT INTO Custom VALUES (4,'Raju','Erode',8000) ;
+
+1 row created.
+
+SQL> INSERT INTO Custom VALUES (3,'Akash','Chennai',7000) ;
+
+1 row created.
+
+SQL> INSERT INTO Custom VALUES (2,'Arun','Salem',6000) ;
+
+1 row created.
+
+SQL> DECLARE
+  2  cus_rec Cus% rowtype ;
+  3  BEGIN
+  4  SELECT * into cus_rec FROM Cus WHERE id = 5 ;
+  5  dbms_output.put_line ( 'Cus ID :' || cus_rec.id ) ;
+  6  dbms_output.put_line ( 'Cus Name :' || cus_rec.name ) ;
+  7  dbms_output.put_line ( 'Cus Address :' || cus_rec.address ) ;
+  8  dbms_output.put_line ( 'Cus Salary :' || cus_rec.salary ) ;
+  9  END ;
+ 10  /
+
+PL/SQL procedure successfully completed.
