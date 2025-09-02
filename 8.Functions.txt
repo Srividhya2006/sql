@@ -1,0 +1,36 @@
+SQL> create or replace function
+  2  factorial(n in number) return
+  3  number is
+  4  begin
+  5  if n<0 then
+  6  return null;
+  7  elsif n=0 then
+  8  return 1;
+  9  else
+ 10  return n * factorial(n-1);
+ 11  end if;
+ 12  end;
+ 13  /
+
+Function created.
+
+SQL> declare
+  2  input_number number;
+  3  result number;
+  4  begin
+  5  input_number:=&enter_a_number;
+  6  result:= factorial(input_number);
+  7  if result is not null then
+  8  dbms_output.put_line('THE FACTORIAL OF'|| input_number||'is'|| result);
+  9  else
+ 10  dbms_output.put_line('invalid input:factorial is not defined for negative
+ 11
+ 12  numbers.');
+ 13  end if;
+ 14  end;
+ 15  /
+Enter value for enter_a_number: 5
+old   5: input_number:=&enter_a_number;
+new   5: input_number:=5;
+
+PL/SQL procedure successfully completed.
